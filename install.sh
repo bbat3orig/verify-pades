@@ -1,17 +1,16 @@
 #!/bin/bash
 # verify-pades — macOS дээр нэг мөрөөр суулгана. Node, bun, brew, gh шаардахгүй.
 #
-# Нээлттэй (public) repo:
-#   curl -fsSL https://raw.githubusercontent.com/<ORG>/<REPO>/main/install.sh -o i.sh && bash i.sh
+#   curl -fsSL https://raw.githubusercontent.com/bbat3orig/verify-pades/main/install.sh | bash
 #
-# Хаалттай (private) repo — токен хэрэгтэй:
-#   GITHUB_TOKEN=ghp_xxx bash i.sh
+# Өөр repo/хувилбар:  VERIFY_PADES_REPO=<ORG>/<REPO> VERIFY_PADES_TAG=v1.0.0 ... | bash
+# Хаалттай repo бол:  GITHUB_TOKEN=ghp_xxx ... | bash
 #
 # curl-аар татсан файлд macOS нь com.apple.quarantine тавьдаггүй тул
 # Gatekeeper диалог гарахгүй, нэмэлт команд бичих шаардлагагүй.
 set -euo pipefail
 
-REPO="${VERIFY_PADES_REPO:-<ORG>/<REPO>}"
+REPO="${VERIFY_PADES_REPO:-bbat3orig/verify-pades}"
 TAG="${VERIFY_PADES_TAG:-latest}"
 TOKEN="${GITHUB_TOKEN:-${GH_TOKEN:-}}"
 ARCH="$([[ "$(uname -m)" == arm64 ]] && echo arm64 || echo x64)"
