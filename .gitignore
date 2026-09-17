@@ -1,0 +1,7 @@
+node_modules/
+build/
+.DS_Store
+
+# Binary-нуудыг git-д БҮҮ оруул — build бүр ~127 MB-ыг түүхэнд үүрд нэмнэ.
+# GitHub Releases-ийн asset болгож байршуулна (repo-гийн хэмжээнд ордоггүй).
+dist/
